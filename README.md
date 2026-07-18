@@ -1,165 +1,135 @@
-# 😴 Drowsiness Detection System
+# 🚗 Driver Drowsiness Detection System
 
-**Python | OpenCV | dlib | Computer Vision**
-
-A real-time computer vision project that detects driver drowsiness by analyzing eye movements using Eye Aspect Ratio (EAR) and generates alerts when fatigue is detected.
+A real-time Driver Drowsiness Detection System built using **Python, OpenCV, dlib, and NumPy**. The system monitors the driver's eye movements using facial landmarks and calculates the **Eye Aspect Ratio (EAR)** to determine whether the driver is active, drowsy, or sleeping. If prolonged eye closure is detected, an alarm is triggered to alert the driver and help prevent accidents caused by fatigue.
 
 ---
 
-## 📌 Project Overview
+## ✨ Features
 
-This project leverages **OpenCV**, **dlib**, and facial landmark detection techniques to track eye behavior through a webcam. By calculating the **Eye Aspect Ratio (EAR)**, the system determines whether the user is alert, drowsy, or asleep.
-
-When continuous eye closure is observed, an alert is triggered to notify the user and reduce the risk of accidents.
-
----
-
-## 🎯 Features
-
-* 👁️ Real-time face and eye tracking
-* 📐 Eye Aspect Ratio (EAR) based analysis
-* 🔄 Multi-level state detection:
-
-  * Active 😄
-  * Drowsy 😐
-  * Sleeping 😴
-* 🔔 Alert system for detecting fatigue
-* ⚡ Automatic reset when user becomes active
-* 🎯 Frame-based smoothing for better stability
-
----
-
-## 🧠 Working Principle
-
-* Detects face using **dlib face detector**
-* Extracts **68 facial landmark points**
-* Identifies eye regions from landmarks
-* Calculates **EAR (Eye Aspect Ratio)**
-* Classifies user state:
-
-  * High EAR → Active
-  * Moderate EAR → Drowsy
-  * Low EAR → Sleeping
-* Triggers alert when drowsiness persists
-
----
-
-## 📐 EAR Formula
-
-```
-EAR = (||p2 - p6|| + ||p3 - p5||) / (2 * ||p1 - p4||)
-```
+- Real-time webcam-based monitoring
+- Face detection using dlib
+- 68 facial landmark detection
+- Eye Aspect Ratio (EAR) calculation
+- Detects three driver states:
+  - 🟢 Active
+  - 🟠 Drowsy
+  - 🔴 Sleeping
+- Continuous alarm for sleeping detection
+- Real-time EAR display
+- Facial landmark visualization
 
 ---
 
 ## 🛠️ Tech Stack
 
-* Python 🐍
-* OpenCV 👁️
-* dlib 🤖
-* NumPy 🔢
-* winsound 🔔
+- Python
+- OpenCV
+- dlib
+- NumPy
+- imutils
+- Winsound
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
-Drowsiness-Detection-System/
+Driver-Drowsiness-Detection-System/
 │
-├── src/
-│   └── main.py
-├── models/
-│   └── shape_predictor_68_face_landmarks.dat
-├── alarm/
-│   └── alert.wav
+├── driver_drowsiness.py
+├── shape_predictor_68_face_landmarks.dat
+├── alarm.wav
+├── requirements.txt
 ├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ Setup & Installation
+## ⚙️ Installation
 
-### 1️⃣ Clone Repository
+Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Drowsiness-Detection-System.git
-cd Drowsiness-Detection-System
+git clone https://github.com/viditsh08/Driver-Drowsiness-Detection-System.git
 ```
 
-### 2️⃣ Install Dependencies
+Navigate to the project directory
 
 ```bash
-pip install opencv-python numpy dlib imutils
+cd Driver-Drowsiness-Detection-System
 ```
 
-### 3️⃣ Add Landmark Model
-
-* Download from: http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
-* Extract and place inside `models/` folder
-
----
-
-## ▶️ Run the Project
+Install the required dependencies
 
 ```bash
-python src/main.py
+pip install -r requirements.txt
 ```
 
-Press **ESC** to exit.
+Run the project
+
+```bash
+python driver_drowsiness.py
+```
 
 ---
 
-## 🔔 Alert Mechanism
+## 🧠 How It Works
 
-* Alarm activates when drowsiness is detected
-* Stops automatically when normal state resumes
-* Implemented using **winsound module**
-
----
-
-## ⚠️ Requirements
-
-* Webcam 📷
-* Python 3.x
-* Windows OS (for alarm support)
+1. Captures live video from the webcam.
+2. Detects the driver's face using **dlib**.
+3. Extracts 68 facial landmarks.
+4. Calculates the **Eye Aspect Ratio (EAR)** for both eyes.
+5. Classifies the driver's state into:
+   - Active
+   - Drowsy
+   - Sleeping
+6. Triggers an alarm when prolonged eye closure is detected.
 
 ---
 
-## 🎓 Applications
+## 📊 Driver State Classification
 
-* Driver safety systems 🚗
-* Fatigue monitoring in workplaces 🏢
-* Smart surveillance systems 👁️
-
----
-
-## 🚀 Future Enhancements
-
-* Integration with deep learning models
-* Mobile application support
-* Advanced alert mechanisms (sound + vibration)
-* Improved accuracy using CNN-based detection
+| State | Description |
+|--------|-------------|
+| 🟢 Active | Driver's eyes are open and the driver is alert. |
+| 🟠 Drowsy | Driver's eyes remain partially closed for several consecutive frames. |
+| 🔴 Sleeping | Driver's eyes remain closed beyond the defined threshold, triggering an alarm. |
 
 ---
 
-## 🤝 Contribution
+## 🚀 Future Improvements
 
-Contributions are welcome! Feel free to fork the repository and enhance the project.
+- MediaPipe Face Mesh integration
+- Blink counter
+- Head pose estimation
+- Driver analytics dashboard
+- Mobile notification support
+- Deep learning-based fatigue detection
 
 ---
 
-## 📄 License
+## 📚 Learning Outcomes
 
-Open-source project available under the MIT License.
+This project helped in understanding:
+
+- Computer Vision fundamentals
+- Face detection techniques
+- Facial landmark detection
+- Eye Aspect Ratio (EAR)
+- Real-time video processing
+- OpenCV image processing
+- Python-based real-time applications
 
 ---
 
-## 🙌 Author
+## 👨‍💻 Author
 
 **Vidit Sharma**
-Computer Science (AI/ML) Student
+
+GitHub: https://github.com/viditsh08
 
 ---
 
-⭐ Star the repository if you found this useful!
+⭐ If you found this project useful, consider giving it a star.
